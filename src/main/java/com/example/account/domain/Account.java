@@ -1,5 +1,6 @@
 package com.example.account.domain;
 
+import com.example.account.type.AccountStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -26,7 +27,8 @@ public class Account {
     private String accountNumber;
 
     @Enumerated(EnumType.STRING)
-    private AccountStatus status;
+    private AccountStatus accountStatus;
+    private Long balance;
 
     private LocalDateTime registeredAt;
     private LocalDateTime unRegisteredAt;
