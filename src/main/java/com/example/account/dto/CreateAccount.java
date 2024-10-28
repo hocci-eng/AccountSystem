@@ -1,6 +1,5 @@
 package com.example.account.dto;
 
-import com.example.account.domain.Account;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

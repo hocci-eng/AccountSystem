@@ -7,14 +7,15 @@ import com.example.account.exception.AccountException;
 import com.example.account.repository.AccountRepository;
 import com.example.account.repository.AccountUserRepository;
 import com.example.account.type.AccountStatus;
-import com.example.account.type.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.example.account.type.AccountStatus.IN_USE;
@@ -23,6 +24,8 @@ import static com.example.account.type.ErrorCode.*;
 @Service
 @RequiredArgsConstructor
 public class AccountService {
+    // 랜덤한 번호를 만들 때 중복체크를 하기 위한 set
+    private static final Set<String> generatedNumbers = new HashSet<>();
 
     private final AccountRepository accountRepository;
     private final AccountUserRepository accountUserRepository;

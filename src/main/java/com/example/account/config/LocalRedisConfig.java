@@ -21,7 +21,7 @@ public class LocalRedisConfig {
 
     @PostConstruct
     public void startRedis() throws IOException {
-        // Redis 실행 파일 경로르 설정
+        // Redis 실행 파일 경로 설정
         RedisExecProvider customRedisProvider = RedisExecProvider.defaultProvider()
                 .override(OS.MAC_OS_X, Architecture.x86_64, "/Users/jay/redis/src/redis-server");
         redisServer = new RedisServer(customRedisProvider, redisPort);
