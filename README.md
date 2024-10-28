@@ -8,7 +8,7 @@
 - Database : `H2 DB`
 - JDK : `OpenJDK 23`
 - API 기능 : `계좌 관련 API`, `거래(Transaction) 관련 API`
-- Library : `Spring data jpa`, `Spring`, `Embedded redis`, `mockito`, `Junit5`, `Jackson`
+- Library : `Spring data jpa`, `Spring`, `Embedded redis`, `Jackson`, `Lombok`, `mockito`, `Junit5`
   <br>
 
 # 👀 프로젝트 기능
