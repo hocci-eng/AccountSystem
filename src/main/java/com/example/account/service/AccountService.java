@@ -24,8 +24,6 @@ import static com.example.account.type.ErrorCode.*;
 @Service
 @RequiredArgsConstructor
 public class AccountService {
-    // 랜덤한 번호를 만들 때 중복체크를 하기 위한 set
-    private static final Set<String> generatedNumbers = new HashSet<>();
 
     private final AccountRepository accountRepository;
     private final AccountUserRepository accountUserRepository;
