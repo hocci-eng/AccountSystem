@@ -38,7 +38,7 @@ public class DeleteAccount {
             return Response.builder()
                     .userId(accountDto.getUserId())
                     .accountNumber(accountDto.getAccountNumber())
-                    .unRegisteredAt(accountDto.getUnregisteredAt())
+                    .unRegisteredAt(accountDto.getUnRegisteredAt())
                     .build();
         }
     }

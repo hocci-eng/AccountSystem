@@ -42,8 +42,8 @@ class AccountServiceTest {
     @Test
     void createAccountSuccess() {
         AccountUser user = AccountUser.builder()
-                .id(12L)
                 .name("spring").build();
+        user.setId(12L);
         // given
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -71,8 +71,8 @@ class AccountServiceTest {
     @Test
     void createFirstAccount() {
         AccountUser user = AccountUser.builder()
-                .id(15L)
                 .name("spring").build();
+        user.setId(15L);
         // given
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -118,8 +118,8 @@ class AccountServiceTest {
     void createAccount_maxAccountIs10() {
         // given
         AccountUser user = AccountUser.builder()
-                .id(12L)
                 .name("spring").build();
+        user.setId(15L);
         // given
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -136,10 +136,11 @@ class AccountServiceTest {
 
     @Test
     void deleteAccountSuccess() {
-        AccountUser user = AccountUser.builder()
-                .id(12L)
-                .name("spring").build();
         // given
+        AccountUser user = AccountUser.builder()
+                .name("spring").build();
+        user.setId(12L);
+
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
         given(accountRepository.findByAccountNumber(anyString()))
@@ -182,8 +183,8 @@ class AccountServiceTest {
     @DisplayName("해당 계좌 없음 - 계좌 해지 실패")
     void deleteAccount_AccountNotFound() {
         AccountUser user = AccountUser.builder()
-                .id(12L)
                 .name("spring").build();
+        user.setId(12L);
         // given
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(user));
@@ -202,11 +203,12 @@ class AccountServiceTest {
     @DisplayName("계좌 소유주 다름")
     void deleteAccountFailed_userUnMatch() {
         AccountUser spring = AccountUser.builder()
-                .id(12L)
                 .name("spring").build();
+        spring.setId(12L);
+
         AccountUser jpa = AccountUser.builder()
-                .id(13L)
                 .name("jpa").build();
+        jpa.setId(13L);
         // given
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(spring));
@@ -228,9 +230,8 @@ class AccountServiceTest {
     @DisplayName("해지 계좌는 잔액이 없어야 한다")
     void deleteAccountFailed_balanceNotEmpty() {
         AccountUser spring = AccountUser.builder()
-                .id(12L)
                 .name("spring").build();
-
+        spring.setId(12L);
         // given
         given(accountUserRepository.findById(anyLong()))
                 .willReturn(Optional.of(spring));
@@ -252,8 +253,8 @@ class AccountServiceTest {
     @DisplayName("해지 계좌는 해지할 수 없다")
     void deleteAccountFailed_alreadyUnregistered() {
         AccountUser spring = AccountUser.builder()
-                .id(12L)
                 .name("spring").build();
+        spring.setId(12L);
 
         // given
         given(accountUserRepository.findById(anyLong()))
@@ -277,8 +278,8 @@ class AccountServiceTest {
     void successGetAccountsByUserId() {
         // given
         AccountUser user = AccountUser.builder()
-                .id(12L)
                 .name("spring").build();
+        user.setId(12L);
         List<Account> accounts = Arrays.asList(
                 Account.builder()
                         .accountUser(user)
