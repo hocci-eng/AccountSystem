@@ -6,7 +6,6 @@ import com.example.account.dto.CreateAccount;
 import com.example.account.dto.DeleteAccount;
 import com.example.account.exception.AccountException;
 import com.example.account.service.AccountService;
-import com.example.account.service.RedisTestService;
 import com.example.account.type.AccountStatus;
 import com.example.account.type.ErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +17,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import javax.security.auth.login.AccountNotFoundException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -36,9 +34,6 @@ class AccountControllerTest {
 
     @MockBean
     private AccountService accountService;
-
-    @MockBean
-    private RedisTestService redisTestService;
 
     @Autowired
     private MockMvc mockMvc;
