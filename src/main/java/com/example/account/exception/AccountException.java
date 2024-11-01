@@ -6,11 +6,11 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @Builder
 public class AccountException extends RuntimeException {
-    private ErrorCode errorCode;
-    private String errorMessage;
+    private final ErrorCode errorCode;
+    private final String errorMessage;
 
     public AccountException(ErrorCode errorCode) {
         this.errorCode = errorCode;

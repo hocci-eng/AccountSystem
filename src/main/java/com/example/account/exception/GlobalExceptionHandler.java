@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ErrorResponse MethodArgumentNotValidException(MethodArgumentNotValidException e) {
+    public ErrorResponse methodArgumentNotValidException(MethodArgumentNotValidException e) {
         log.error("MethodArgumentNotValidException is occurred", e);
 
         return new ErrorResponse(INVALID_REQUEST, INVALID_REQUEST.getDescription());
